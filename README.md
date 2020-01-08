@@ -1,2 +1,2 @@
-# geoverticlaproject
-Proyecto Creado para Geovertical.
+# WebApp TeatroCousino
+Proyecto Creado para Mcventos.
