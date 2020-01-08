@@ -1,0 +1,267 @@
+
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% block content %}
+        <section class="bg-home" id="home">
+            <div class="bg-overlay"></div>
+            <div class="home-center">
+                <div class="home-desc-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            {% for headers in header %}
+                            <div class="col-lg-10 text-center">
+                                <h6 class="home-title text-white">{{headers.title}}</h6>
+                                <p class="pt-4 home-sub-title text-white mx-auto">{{headers.subtitle}}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--About section-->
+        <section id="service" class="section">
+        <!---->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="title text-center">
+                            <h2>Nuestros <b>Servicios</b></h2>
+                            <span class="title-border"><i class="mdi mdi-set-none"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-4 mt-4">
+                {% for services in service %}
+                {% if services.row == "1" %}
+                    <div class="col-lg-4 mt-4">
+                        <div class="service-box clearfix p-4">
+                            <div class="service-icon service-left"><i class="{{services.icon}}"></i></div>
+                            <div class="service-desc service-left">
+                                <h4>{{services.title}}</h4>
+                                <p class="text-muted mb-0">{{services.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <div class="row pt-4 mt-4">
+                {% for services in service %}
+                {% if services.row == "2" %}
+                    <div class="col-lg-4 mt-3">
+                        <div class="service-box clearfix p-4">
+                            <div class="service-icon service-left"><i class="{{services.icon}}"></i></div>
+                            <div class="service-desc service-left">
+                                <h4>{{services.title}}</h4>
+                                <p class="text-muted mb-0">{{services.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <div class="row pt-4 mt-4">
+                {% for services in service %}
+                {% if services.row == "3" %}
+                    <div class="col-lg-4 mt-3">
+                        <div class="service-box clearfix p-4">
+                            <div class="service-icon service-left"><i class="{{services.icon}}"></i></div>
+                            <div class="service-desc service-left">
+                                <h4>{{services.title}}</h4>
+                                <p class="text-muted mb-0">{{services.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="team">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="title text-center">
+                            <h2>Nuestras <b>Obras</b></h2>
+                            <span class="title-border"><i class="mdi mdi-set-none"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 pt-4 owl-carousel owl-theme">
+                    {% for obra in obras %}
+                    <div class="col-lg-3 mt-3">
+                        <div class="card" style="width: 18rem;">
+                                <img src="{{obra.image.url}}" class="card-img-top" style="height: 225px; width: 100%; display: block;" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{obra.title}}</h5>
+                                    <p class="card-text">{{obra.description}}</p>
+                                    <a href="{% url 'page' pk=obra.pk  %}" class="btn btn-danger">Más Informacion</a>
+                                </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Eventos -->
+        <section class="section" id="events">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="title text-center">
+                            <h2>Eventos<b> 2019</b></h2>
+                            <span class="title-border"><i class="mdi mdi-set-none"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 pt-4 owl-carousel owl-theme">
+                    {% for event in events %}
+                    <div class="col-lg-3 mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{event.image.url}}" class="card-img-top" style="height: 225px; width: 100%; display: block;" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">{{event.title}}</h5>
+                              <p class="card-text">{{event.description}}</p>
+                              <a href="{% url 'page' pk=event.pk  %}" class="btn btn-danger">Más Información</a>
+                            </div>
+                          </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- TESTIMONIALS -->
+        <section class="section bg-light" id="client">            
+                <div class="row pt-4 mt-4">
+                    
+                </div>
+            </div><!-- end container -->
+        </section>
+        <!-- end TESTIMONIALS -->
+
+        <!-- CONTACT FORM START-->
+        <section class="section " id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="title text-center">
+                            <h2><b>Contacto</b></h2>
+                            <span class="title-border"><i class="mdi mdi-set-none"></i></span>
+                        </div>
+                    </div>
+                </div>              
+                <div class="custom-form mt-4 pt-4">
+                    <div id="message"></div>
+                    <form action="{% url 'contact_create' %}"  method="POST" id="contact-form" name="contact-form">{% csrf_token %}
+                       <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                   <!-- <input name="name" id="name" type="text" class="form-control" placeholder="Your name..." >-->
+                                   {{form.name}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="phone">Telefono</label>
+                                        <!--<input name="email" id="email" type="email" class="form-control" placeholder="Your email..." >-->
+                                        {{form.phone}}
+                                    </div>
+                                </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <!--<input name="email" id="email" type="email" class="form-control" placeholder="Your email..." >-->
+                                    {{form.email}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="comments">Mensaje</label>
+                                   <!-- <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your message..."></textarea>-->
+                                   {{form.message}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-right">
+                                
+                                <input type="submit" class="btn btn-primary btn-custom" value="Enviar">
+                               
+                            </div>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </section> 
+
+        <!-- Footer -->
+        <section class="section bg-light"> 
+                <div class="container">
+                    <div class="row">
+    
+                        <div class="col-lg-3 text-dark font-italic  ">
+                            {% for description in descriptions %}
+                            <img src="{{description.logo.url}}" alt="" class="logo-dark" height="60" />
+                            
+                            <p>
+                            </p>
+                            <p>{{description.description}} </p>
+                            {% endfor %}
+                        </div>
+                        
+                        {% for submenu in submenus %}
+                        <div class="col-lg-2">
+                            <p class="text-uppercase footer-title">{{submenu.name}}</p>
+                            <ul class="list-unstyled company-sub-menu">
+                                {% for button in submenu.button_submenu.filter_actives %}
+                                <li><a href="{{button.url}}">{{button.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                        <div class="col-lg-3">
+                            {% for generalinfo in generalinfos %}
+                            <p class="text-uppercase footer-title">Informacion comercial </p>
+                            <div class="contact-us">
+                                <p>Phone: {{generalinfo.phone}}</p>
+                                <p>Ubication: {{generalinfo.ubication}}</p>
+                                <p>{{generalinfo.email}}</p>
+                            </div>
+                            {% endfor %}
+                            <ul class="footer-icons list-inline mt-4"> 
+                                {% for socialnetwork in socialnetworks %}
+                                <li class="list-inline-item"><a href="{{socialnetwork.url}}" class=""><i class="{{socialnetwork.icon}}"></i></a></li> 
+                                {% endfor %}
+                                
+                            </ul>
+    
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <div class="footer-alt bg-dark">
+                    <p class="copy-rights">2019 © Teatro Cousiño. Todos los derechos reservados</p>
+                </div>
+        
+
+
+        
+
+        <!-- COPYRIGHT -->
+        
+
+
+        <!-- Style switcher -->
+       
+    {% endblock %}
+    
